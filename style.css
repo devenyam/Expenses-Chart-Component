@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --bg-color: hsl(27, 66%, 92%);
+  --balance-section: hsl(10, 79%, 65%);
+  --chart-fade: hsl(10, 76%, 73%);
+  --header-color: hsl(25, 47%, 15%);
+  --content-color: hsl(28, 10%, 53%);
+  --active-chart: hsl(186, 34%, 60%);
+  --max-chart-fade: hsl(185, 42%, 74%);
+  --summary-section: hsl(33, 100%, 98%);
+  --section-border: 10px;
+  --section-gap: 15px 20px;
+  --section-border-ds: 15px;
+  --section-gap-ds: 20px 30px;
+  --width: 10%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.balance-section {
+  background-color: var(--balance-section);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--section-gap);
+  color: var(--summary-section);
+  border-radius: var(--section-border);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.amount-header {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.amount {
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 1.2px;
+}
+
+.large {
+  font-size: 25px;
+  color: var(--header-color);
+}
+
+.logo img {
+  height: 60px;
+  width: 60px;
+}
+
+.chart-section {
+  background-color: var(--summary-section);
+  border-radius: var(--section-border);
+  padding: var(--section-gap);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chart-section-header {
+  color: var(--header-color);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+.charts {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: var(--width);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bar-chart {
+  background-color: var(--balance-section);
+}
+
+.day {
+  position: absolute;
+  top: 100%;
+  margin-top: 15px;
+  color: var(--content-color);
+  font-weight: 400;
+  font-size: small;
+}
+
+.divider {
+  height: 1.8px;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
+.summary-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount-details {
+  color: var(--content-color);
+}
+
+.previous-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.amount-percent {
+  color: var(--header-color);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* ACTIVE CLASSES */
+.bar-chart-active {
+  background-color: var(--active-chart);
+}
+
+.max-chart-fade {
+  background-color: var(--max-chart-fade);
+}
+
+.chart-fade {
+  background-color: var(--chart-fade);
+}
+
+.expense-tag {
+  content: '2';
+  position: absolute;
+  top: -35px;
+  background-color: var(--header-color);
+  padding: 6px;
+  border-radius: 5px;
+  color: var(--summary-section);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  display: none;
+}
+
+@media screen and (max-width: 320px) {
+  .container {
+    width: 100%;
+  }
+
+  .charts {
+    gap: 0.25rem;
+  }
+
+  .expense-tag {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .expense-tag {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 572px) {
+  .container {
+    max-width: 470px;
+  }
+
+  .balance-section,
+  .chart-section {
+    border-radius: var(--section-border-ds);
+    padding: var(--section-gap-ds);
+  }
+
+  .chart-section-header {
+    font-size: 28px;
+  }
+
+  .amount-header {
+    font-size: 16px;
+  }
+
+  .amount {
+    font-size: 25px;
+  }
+
+  .large {
+    font-size: 40px;
+  }
+
+  .expense-tag {
+    top: -38px;
+    padding: 7px;
+    font-size: 16px;
+  }
+}
